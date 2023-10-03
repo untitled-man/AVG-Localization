@@ -5,12 +5,12 @@
   位姿预测部分用REKF算法将激光雷达与IMU融合，位姿更新部分用KLD-MCL将激光雷达与预测信息融合，最总得到机器人的运动轨迹。REKF是在EKF的基础上改进得到的，KLD-MCL则是基于MCL改进的，MATLAB文件夹中包含了改进前后的算法，可供比较各种算法的效果差异。
 
 ## 使用说明
-  step.1 获取传感器数据
-    打开car_left_rot.ttt文件，运行仿真环境。再打开car_connect_test.m文件，运行。此时CoppeliaSim开始运行，并向MATLAB发送传感器数据。注意需要手动停止。运行结束后保存imu_data，laser_data，pose_idea这三个数据。
-  step.2 建立环境地图
-    手动建立，提供了临时脚本mapping.mlx用于测试。尽力了，有什么更好的方法欢迎提出。
-  step.3 定位
-    将imu_data，laser_data，pose_idea，map，p，dist，pose这几个数据保存在一个mat文件中，与其他MATLAB文件放在一个目录下。运行main.m前修改一下第10行的文件名即可。
+step.1 获取传感器数据
+  打开car_left_rot.ttt文件，运行仿真环境。再打开car_connect_test.m文件，运行。此时CoppeliaSim开始运行，并向MATLAB发送传感器数据。注意需要手动停止。运行结束后保存imu_data，laser_data，pose_idea这三个数据。
+step.2 建立环境地图
+  手动建立，提供了临时脚本mapping.mlx用于测试。尽力了，有什么更好的方法欢迎提出。
+step.3 定位
+  将imu_data，laser_data，pose_idea，map，p，dist，pose这几个数据保存在一个mat文件中，与其他MATLAB文件放在一个目录下。运行main.m前修改一下第10行的文件名即可。
 
 关键变量说明：
 imu_data：imu数据矩阵，包含加速度与角速度，每一行表示该采样时刻三轴加速度值与三轴角速度值，顺序分别为x加速度、y加速度、z加速度、x角速度、y角速度、z角速度
